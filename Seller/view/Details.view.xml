@@ -1,0 +1,137 @@
+<mvc:View
+	controllerName="UI5_new.controller.Details"
+	xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form">
+	
+                <Shell>
+                <Page   title="Seller Information"  enableScrolling="true" class="sapUiResponsivePadding">
+                
+                 
+                    <content >
+                        
+                        <VBox fitContainer="true">
+                            <f:SimpleForm 
+                                minWidth="1024"
+                                maxContainerCols="2"
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                               
+                                labelSpanL="4"
+                                labelSpanM="4"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                columnsL="2"
+                                columnsM="2"
+                                >
+                                <f:toolbar>
+                                    <Toolbar id="TB1">
+                                       
+                                       <Button  icon="sap-icon://navigation-left-arrow" press=".goHome"/>
+                                       <ToolbarSpacer />
+                                       <Button icon="sap-icon://edit"  type="Emphasized" text="Edit info" class="myCustomButton" press=".editBtn "></Button>
+
+                                       
+                                       
+                                    </Toolbar>
+                                 </f:toolbar>
+                                
+                                <f:content>
+                                    <c:Title text="Seller Details" />
+                                
+                                
+                                    <Label text="Seller ID : " />
+                                    <Text text="{Seller>sellerId}" />
+                            
+                                  
+                                    <Label text="Name : " />
+                                    <Text text="{Seller>name}" />
+                                    
+                                    <Label text="Email : " />
+                                    <Text text="{Seller>email}" />
+                                    
+                                    <Label text="Contact no. : " />
+                                    <Text text="{Seller>contact_no}" />
+                                   
+                                    <Label text="Outlet Name : " />
+                                    <Text text="{Seller>outlet_name}" />
+                                    
+                                        <!-- <Label text="Dealing Product" />
+                                        <Text text="{Seller>dealing_product}" /> -->
+                                    <Label text="responsible Order : " />
+                                    <Text text="{Seller>responsible_order}" />
+                                   
+                                        <Label text="Overall Review : " />
+                                        <Text text="{path:'Seller>overall_rating',
+                                                      formatter:'.rate'}" />
+                                                  
+                                                    
+                                                      <Toolbar>
+                                                        <Title text="Dealing Products"/>
+                                                        <ToolbarSpacer/>
+                                                        
+                                                        <Button  icon="sap-icon://add-product"   
+                                                                        press=".onAddProducts" />
+                                                    </Toolbar>
+                                                    <List
+                                                    
+                                                   items="{
+                                                      path: 'Seller>dealing_products'
+                                                       }" 
+                                                       >
+                                                       
+                                                    <StandardListItem
+                                                            title="{Seller>text}"
+                                                            />
+                                                       </List>
+                                    
+                                    
+                                    
+                                </f:content>
+                            
+                                <f:content>
+                                   
+                                       <!-- <content> -->
+                                        <c:Title  text="Address"/>
+                                        <!-- <Panel expandable="true" headerText="Address"  > -->
+                                        <!-- <VBox fitContainer="true"> -->
+                                            
+                                        <Label text="Outlet Name : " class="sapUiResponsivePadding"/>
+                                        <Text text="{Seller>outlet_name}" class="sapUiResponsivePadding"/>
+                                           
+                                            
+                                        <Label text="No./Street : " class="sapUiResponsivePadding"/>
+                                        <Text text="#{Seller>no} {Seller>street}" class="sapUiResponsivePadding"/>
+                                       
+                                            
+                                        <Label text="ZIP Code/City : " class="sapUiResponsivePadding"/>
+                                        <Text text="{Seller>city} {Seller>zip}" class="sapUiResponsivePadding"/>
+                                       
+                                            
+                                        <Label text="Country : " class="sapUiResponsivePadding"/>
+                                        <Text text="{Seller>country}" class="sapUiResponsivePadding"/>
+                                       
+                                        <!-- </VBox> -->
+                                       <!-- </content> -->
+                                        
+                                    <!-- </Panel> -->
+                                        
+
+                                           <c:Title text="Ratings" />
+                                
+                                           <Label text="Seller Rating" class="sapUiSmallMarginTop"/>
+                                           <RatingIndicator  maxValue="5" class="sapUiSmallMarginBottom" value="{Seller>seller_rating}" tooltip="Rating Tooltip" editable="false"/>
+                                           <Label text="Service Rating" class="sapUiSmallMarginTop"/>
+                                           <RatingIndicator  maxValue="5" class="sapUiSmallMarginBottom" value="{Seller>service_rating}" tooltip="Rating Tooltip" editable="false"/>
+                                           <Label text="Product Rating" class="sapUiSmallMarginTop"  />
+                                           
+                                           <RatingIndicator   maxValue="5" class="sapUiSmallMarginBottom" value="{Seller>product_rating}" tooltip="Rating Tooltip" editable="false"/>
+                                </f:content>
+                               
+                            </f:SimpleForm>
+                            </VBox>
+                            </content>
+	</Page>
+</Shell>
+</mvc:View>

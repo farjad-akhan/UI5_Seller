@@ -1,0 +1,69 @@
+
+html[dir="ltr"] .myAppDemoWT .myCustomButton.sapMBtn {
+    margin-right: 0.125rem;
+    border-radius: 10px;
+    
+ }
+ 
+ html[dir="rtl"] .myAppDemoWT .myCustomButton.sapMBtn {
+    margin-left: 0.125rem;
+    border-radius: 10px;
+
+ }
+
+ .myAppDemoWT .myColor{
+     background-color:rgb(161, 179, 199);
+   
+ }
+
+ 
+
+ .sapMNavItem, .sapMNavItem.sapMPage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    background-color:rgb(242, 247, 247);
+}
+
+.sapMLIB.sapMObjLItem {
+    background-color: rgb(237, 246, 246);
+    padding: 1rem;
+}
+
+/* .sapMBarTitleAlignAuto .sapMBarPH {
+    justify-content: flex-start;
+    background-color: rgb(171, 194, 194);
+    color: white;
+} */
+
+.sapUiFormM:not(.sapUiFormEdit)>.sapUiFormResGrid>div:not(.sapMTB) {
+    padding-bottom: 0.75rem;
+    background-color: whitesmoke;
+}
+
+.sapUiFormResGrid.sapUiFormToolbar>div:first-child {
+    background-color: transparent;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    padding-right: 1rem;
+    background-color: whitesmoke;
+}
+
+.sapMDialog header .sapMBarRight, .sapMDialog header .sapMBarPH {
+    padding-right: 1rem;
+    background-color: rgb(161, 179, 199);
+}
+
+.sapMDialogScroll {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    vertical-align: middle;
+    background-color: whitesmoke;
+}
+
+/* .customColor{
+background-color: blue;
+} */

@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:u="sap.ui.unified"
+   xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" >
+    <Dialog 
+     id="PDialog"
+    title="Please mention the product">
+    <Label text="Dealing Product" design="Bold" class="sapUiSmallMargin"/>
+    <Input value="{Seller>/sellerData/add_product}" type="Text" required="true" class="sapUiSmallMargin" width="85%"/>
+
+        <endButton>
+            <Button text="Save" press=".saveBtn"/>
+           <Button
+           type="Accept"
+           icon="sap-icon://accept"
+              text="{i18n>dialogSubmitButtonText}"
+              press=".onSubmitProdDialog"/>
+        </endButton>
+              <beginButton>
+                 <Button icon="sap-icon://decline"
+                 type="Reject"
+                    text="{i18n>dialogCloseButtonText}"
+                    press=".onClosePfragment"/>
+              </beginButton>
+</Dialog>
+</core:FragmentDefinition>

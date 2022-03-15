@@ -1,0 +1,141 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:u="sap.ui.unified"
+   xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" >
+   <Dialog 
+     id="formDialog"
+      title="{i18n>openDialogButtonText}">
+     
+      <!-- Dialog Box Form -->
+
+      <VBox class="sapUiSmallMargin">
+         <f:SimpleForm  
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="4"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+            ariaLabelledBy="Title1" >
+            
+            <f:content>
+   <!-- Seller Info -->
+               <Toolbar ariaLabelledBy="Title2">
+                  <Title id="Title2" text="Seller Info"/>
+               </Toolbar>
+               <Label text="Name" design="Bold"/>
+               <Input value="{Seller>/sellerData/name}" type="Text" required="true" width="85%" editable="{Seller>/editable}"/>
+                <Label text="Outlet Name" design="Bold"/>
+                <Input value="{Seller>/sellerData/outlet_name}" type="Text" required="true" width="85%"/>
+                    <Label required="true" text="Email" design="Bold"/>
+                    <Input value="{Seller>/sellerData/email}" width="85%"/>
+                    <Label text="contact no." design="Bold"/>
+                    <Input value="{Seller>/sellerData/contact_no}" type="Number" required="true" width="85%"/>
+                        <Label text="Responsible Order" design="Bold" />
+                    <Input value="{Seller>/sellerData/responsible_order}" type="Number" required="true" width="85%"/>
+               
+               <Label text="Dealing product" design="Bold"/>
+             
+
+             <MultiComboBox
+			      selectionChange="handleSelectionChange"
+			      selectionFinish="handleSelectionFinish"
+			       width="350px"
+		      	   items="{
+		      	   	path: 'Seller>/products'
+                     
+		    	}"
+              >
+		        	<core:Item key="{Seller>id}" text="{Seller>text}"/>
+		      </MultiComboBox>
+
+            <Label text="Product Rating"  design="Bold" required="true" class="sapUiSmallMarginTop"/>
+            <RatingIndicator
+            class="sapUiSmallMarginBottom"
+         
+                  
+                  value="{Seller>/sellerData/product_rating}" />
+             <Label text="Service Rating"  design="Bold" required="true" class="sapUiSmallMarginTop"/>
+             <RatingIndicator
+            
+            
+             value="{Seller>/sellerData/service_rating}" />
+             <Label text="Seller Rating"  design="Bold" class="sapUiSmallMarginTop"/>
+            <RatingIndicator
+            
+                  
+                  value="{Seller>/sellerData/seller_rating}" />
+<!-- addresss -->
+               <Toolbar ariaLabelledBy="Title3">
+                  <Title id="Title3" text="Address"/>
+                
+               </Toolbar>
+               <Label text="Country" design="Bold"/>
+               <ComboBox 
+               width="85%"
+               required="true"
+               change=".onCountryChange"
+                value="{Seller>/sellerData/country}"  
+                items="{
+                     path: 'Seller>/countries'	
+                     }"
+                     >
+                     <core:ListItem key="{Seller>id}" text="{Seller>name}" />		
+               </ComboBox>
+               <Label text="City" design="Bold"/>
+               <Input value="{Seller>/sellerData/city}" required="true" width="85%"/>
+               <Label text="No./Street" design="Bold" required="true"/>
+               <Input   value="{Seller>/sellerData/no}"  type="Number">
+                  <layoutData>
+                     <l:GridData span="XL2 L1 M3 S4" />
+                  </layoutData>
+               </Input >
+               <Input value="{Seller>/sellerData/street}" type="Text" width="76%"></Input>
+               <Label text="ZIP Code" design="Bold"/>
+               <Input value="{Seller>/sellerData/zip}" type="Number" required="true" width="85%">
+                 
+               </Input>
+               
+              
+               
+ <!-- Ratings -->
+               <!-- <Toolbar ariaLabelledBy="Title4">
+                  <Title id="Title4" text="Ratings"/>
+                
+               </Toolbar> -->
+               
+              
+            </f:content>
+         </f:SimpleForm>
+      </VBox>
+ 
+ 
+  <endButton>
+    <Button text="Save" press=".saveBtn"/>
+   <Button
+   type="Accept"
+   icon="sap-icon://accept"
+      text="{i18n>dialogSubmitButtonText}"
+      press=".onSubmitDialog"/>
+</endButton>
+      <beginButton>
+         <Button icon="sap-icon://decline"
+         type="Reject"
+            text="{i18n>dialogCloseButtonText}"
+            press=".onCloseDialog"/>
+      </beginButton>
+     
+   </Dialog>
+</core:FragmentDefinition>

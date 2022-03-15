@@ -1,0 +1,40 @@
+<mvc:View
+	controllerName="UI5_new.controller.Seller"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<List
+		id="List"
+		class="sapUiResponsiveMargin myColor"
+		width="auto"
+		items="{
+			path : 'Seller>/sellerList'
+		}">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>sellerListTitle}"/>
+				<ToolbarSpacer/>
+				<SearchField width="40%" liveChange=".onFilterSellers" class="sapUiSmallMarginEnd"/>
+                <Button  icon="sap-icon://add-employee"  type="Emphasized"  
+                                press=".onAdd" />
+			</Toolbar>
+            
+		</headerToolbar>
+		<items>
+			<ObjectListItem
+            title="{Seller>name} "
+				type="Navigation"
+                
+				press=".onPress">
+				
+                <ObjectAttribute text="{Seller>outlet_name} - {Seller>city}" />
+                   <firstStatus>
+                       <ObjectStatus  text="{path:'Seller>overall_rating',
+                        formatter:'.rate'}" state="{path:'Seller>overall_rating', formatter:'.statusColor'}"/>
+                      
+                   </firstStatus> 
+			</ObjectListItem>
+         
+
+		</items>
+	</List>
+</mvc:View>
